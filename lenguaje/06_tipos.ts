@@ -71,3 +71,13 @@
     let oDatos2: IPersona;
 
 }
+
+//Enums
+{
+    enum Direction {
+        Up,
+        Down,
+        Left,
+        Right
+    }
+}
