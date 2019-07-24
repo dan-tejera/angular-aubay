@@ -1,27 +1,29 @@
 <h3>Lista Plus</h3>
 
-<!-- (addTarea)= Evento definido en el hijo y al recibirlo el padre ejecutará el método addTarea() al que se le manda el evento -->
-<aby-nueva-tarea (addTarea)="addTarea($event)"></aby-nueva-tarea>
+<aby-nueva-tarea 
+    (addTarea)="addTarea($event)"
+    (deleteAllTareas)="deleteAllTareas()">
+</aby-nueva-tarea>
 
-<div *ngIf="aTareas.length; else templateNo2">   
-  
-        <div class="mt-4">
-             <h4>Tareas</h4>
-                <ul>
-                <!-- [ngClass] Aplicar una clase dependiendo de una condición -->
-                    <li *ngFor="let tarea of aTareas; let i = index;"
-                    [ngClass]="{ completado: tarea.isCompleted }"> 
-                    <aby-mostrar-tarea></aby-mostrar-tarea>
-                    </li>
-                </ul>
-        </div>
-    </div> 
-        
-    <ng-template #templateNo2>
-        <div class="mt-4">
-            <p>Inserte alguna tarea</p>
-        </div>        
-    </ng-template>
-    
+<div class='mt-4' *ngIf="aTareas.length; else TemplateNo">
+    <h4>Tareas</h4>
+    <ul>
+        <li *ngFor="let tarea of aTareas; let i = index">
+            <aby-mostrar-tarea [tarea]="tarea" [i]="i" 
+                (deleteTarea)="deleteTarea($event)"
+                (changeTarea)="changeTarea($event)" ></aby-mostrar-tarea> 
+        </li>
+    </ul>
+</div>
 
+<ng-template #TemplateNo>
+    <div class='mt-4'>
+        <p>Animate a añadir alguna tarea</p>
+    </div>
+</ng-template>
 
+<dialog #dlgConfirmar>
+    <p>¿Estás seguro de borrar todas las tareas?</p>
+    <button (click)="deleteAllTareas(true)">SI</button>
+    <button (click)="dlgConfirmar.close()">NO</button>
+</dialog>

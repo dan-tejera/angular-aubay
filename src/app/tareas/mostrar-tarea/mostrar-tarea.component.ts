@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { TareaModel } from 'src/app/models/tarea.model';
 
 @Component({
@@ -6,26 +6,31 @@ import { TareaModel } from 'src/app/models/tarea.model';
   templateUrl: './mostrar-tarea.component.html',
   styleUrls: ['./mostrar-tarea.component.css']
 })
+
 export class MostrarTareaComponent implements OnInit {
 
-  @Input() tarea: TareaModel;
+  @Input() tarea: TareaModel
+  @Input() i: number
+  @Output() deleteTarea: EventEmitter<number>
+  @Output() changeTarea: EventEmitter<object>
+
+  isEditable: boolean
 
   constructor() { 
-    
+    this.deleteTarea = new EventEmitter()
+    this.changeTarea = new EventEmitter()
   }
 
-  ngOnInit() {
-
+  ngOnInit() {    
+    this.isEditable = false;
   }
 
-  saveTareas()
-  {
-
+  onChange() {
+    this.changeTarea.next( {i: this.i, tarea: this.tarea })
   }
 
-  deleteTarea()
-  {
-
+  onClickDelete(){
+    this.deleteTarea.next(this.i)
   }
 
 }
