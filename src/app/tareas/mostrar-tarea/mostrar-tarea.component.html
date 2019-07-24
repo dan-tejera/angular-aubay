@@ -1,0 +1,4 @@
+<input type="checkbox" name="isC" id="isC" [(ngModel)]="tarea.isCompleted" (change)="saveTareas()">
+{{ tarea.nombre }} - {{ tarea.responsable }}
+<span class="pointer" (click)="isEditable=true">✍️</span>
+<span class="pointer" (click)="deleteTarea()">🗑️</span>

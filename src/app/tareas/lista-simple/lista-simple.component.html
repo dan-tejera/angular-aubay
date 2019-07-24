@@ -22,13 +22,54 @@
     </button>
 </div>
 
-<div>
-    <h4>Tareas</h4>
-    <ul>
-        <li *ngFor="let tarea of aTareas; let i = index; ">
-            <input type="checkbox" name="isC" id="isC" [(ngModel)]="tarea.isCompleted" (change)="saveTareas()">
-            {{ tarea.nombre }} - {{ tarea.responsable }}
-            <span class ="pointer" (click)= "deleteTarea(i)">🗑️</span>
-        </li>
-    </ul>
-</div>
+<!-- <div class="mt-4" *ngIf="aTareas.length"> -->
+
+<!-- ngIf then else Angular 4 -->
+<!-- <div *ngIf="aTareas.length; then templateSi; else templateNo">   
+</div>   
+
+    <ng-template #templateSi>
+        <div class="mt-4">
+            <h4>Tareas</h4>
+            <ul>
+                <li *ngFor="let tarea of aTareas; let i = index; ">
+                    <input type="checkbox" name="isC" id="isC" [(ngModel)]="tarea.isCompleted" (change)="saveTareas()">
+                    {{ tarea.nombre }} - {{ tarea.responsable }}
+                    <span class ="pointer" (click)= "deleteTarea(i)">🗑️</span>
+                </li>
+            </ul>
+        </div>
+    </ng-template>
+
+    <ng-template #templateNo>
+        <div class="mt-4">
+            <p>Inserte alguna tarea</p>
+        </div>        
+    </ng-template> -->
+
+<!-- ngIf else Angular 5 -->
+<div *ngIf="aTareas.length; else templateNo2">   
+  
+    <div class="mt-4">
+         <h4>Tareas</h4>
+            <ul>
+            <!-- [ngClass] Aplicar una clase dependiendo de una condición -->
+                <li *ngFor="let tarea of aTareas; let i = index;"
+                [ngClass]="{ completado: tarea.isCompleted }" [contentEditable]="isEditable"> 
+                    <input type="checkbox" name="isC" id="isC" [(ngModel)]="tarea.isCompleted" (change)="saveTareas()">
+                    {{ tarea.nombre }} - {{ tarea.responsable }}
+                    <span class = "pointer" (click) = "isEditable=true">✍️</span>
+                    <span class = "pointer" (click) = "deleteTarea(i)">🗑️</span>
+                </li>
+            </ul>
+    </div>
+</div> 
+    
+<ng-template #templateNo2>
+    <div class="mt-4">
+        <p>Inserte alguna tarea</p>
+    </div>        
+</ng-template>
+
+
+
