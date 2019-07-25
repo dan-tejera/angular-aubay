@@ -16,6 +16,10 @@ const routes: Routes = [
   { path: 'tareas', loadChildren: './tareas/tareas.module#TareasModule' },
   // manera en angular menor a 8
   
+  {
+    path: 'cursos', 
+    loadChildren: () => import('./cursos/cursos.module').then(m => m.CursosModule)
+  },
 
   //{ path: 'usuarios', component: UsuariosComponent },
   {
