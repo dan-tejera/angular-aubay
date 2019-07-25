@@ -9,12 +9,14 @@ export class SaludoComponent implements OnInit {
 
   nombre: string;
   mensaje: string;
+  frase: string;
 
   constructor() { }
 
   ngOnInit() {
     this.nombre = '';
     this.mensaje = 'Dime tu nombre';
+    this.frase = 'Ejemplo de frase larga para probar nuestro pipe';
   }
 
   onClickBorrar (evento: Event)
