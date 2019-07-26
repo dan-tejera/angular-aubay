@@ -32,6 +32,11 @@ const routes: Routes = [
     path: 'catalogo', 
     loadChildren: () => import('./catalogo/catalogo.module').then(m => m.CatalogoModule)
   },  
+
+  {
+    path: 'libros', 
+    loadChildren: () => import('./libros/libros.module').then(m => m.LibrosModule)
+  },  
   
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   //{ path: '**', redirectTo: 'home' },

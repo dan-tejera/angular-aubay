@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Libros-mock</h4>
+    </div>
+    <div class="card-body form-group">
+        <input type="text" (change) = "onChangeInput()" class="form-control" 
+        name="" id="" placeholder="Clave de búsqueda" [(ngModel)]="clave" >
+    </div>
+    <div class="card-footer text-muted">
+        Resultados
+        <ul>
+            <li *ngFor = "let libro of aLibros">
+                {{ libro }}
+            </li>
+        </ul>
+    </div>
+</div>
