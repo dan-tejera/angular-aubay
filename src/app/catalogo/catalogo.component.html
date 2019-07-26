@@ -1,0 +1,6 @@
+<h2>Catálogo de Libros</h2>
+    <ul>
+        <li *ngFor="let libro of aLibros; let i = index;">
+            <a [routerLink]="'detalle/' + i">{{ libro.autor }} - {{ libro.title }}</a>
+        </li>
+    </ul>

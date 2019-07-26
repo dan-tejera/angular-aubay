@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ErrorComponent } from './core/error/error.component';
 //import { HomeComponent } from '../app/home/home.component';
 //import { TareasComponent } from '../app/tareas/tareas.component';
 //import { UsuariosComponent } from '../app/usuarios/usuarios.component';
@@ -25,10 +26,18 @@ const routes: Routes = [
   {
     path: 'usuarios', 
     loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuariosModule)
-  },    
+  },   
+  
+  {
+    path: 'catalogo', 
+    loadChildren: () => import('./catalogo/catalogo.module').then(m => m.CatalogoModule)
+  },  
   
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: '**', redirectTo: 'home' },
+  //{ path: '**', redirectTo: 'home' },
+
+  { path: '**', component: ErrorComponent }
+  
 ];
 
 @NgModule({

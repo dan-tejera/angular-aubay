@@ -4,13 +4,14 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
   declarations: [
     HeaderComponent, 
     FooterComponent, 
-    MenuComponent
+    MenuComponent, ErrorComponent
 
   ],
   imports: [
@@ -19,7 +20,7 @@ import { AppRoutingModule } from '../app-routing.module';
   ],
   exports: [
     HeaderComponent, 
-    FooterComponent
+    FooterComponent, ErrorComponent
   ]
 })
 export class CoreModule { }

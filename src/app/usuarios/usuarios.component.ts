@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'aby-usuarios',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuariosComponent implements OnInit {
 
-  constructor() { }
+  usuario: string;
+
+  constructor(public activatedRoute: ActivatedRoute,
+              public router: Router) { }
 
   ngOnInit() {
+    this.usuario = this.activatedRoute.snapshot.params['param']
+
+  }
+
+  onClickIr() {
+    this.router.navigate(['/home'])
   }
 
 }

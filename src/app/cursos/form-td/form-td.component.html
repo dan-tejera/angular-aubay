@@ -46,7 +46,7 @@ para manipular el objeto es necesario hacer #FormAlumno = 'ngForm' -->
         <legend>Datos del curso</legend>
         <div class="form-check">
             <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" name="isOk" id="isOk" [(ngModel)]="alumno.isOk">
+                <input type="checkbox" class="form-check-input" name="isOk" id="isOk" [(ngModel)]="alumno.isOk" required >
                 Estoy de acuerdo con ....
             </label>
         </div>
@@ -66,7 +66,7 @@ para manipular el objeto es necesario hacer #FormAlumno = 'ngForm' -->
 
         <div class="form-group">
             <label for="curso">Selecciona el tema</label>
-            <select class="form-control" name="curso" id="curso" [(ngModel)]="alumno.curso">
+            <select class="form-control" name="curso" id="curso" [(ngModel)]="alumno.curso" required>
                 <!-- con [ngValue] se recoge el objeto completo -->
                 <option *ngFor="let curso of cursos" [ngValue]="curso" [title]="curso.description">
 
@@ -82,4 +82,4 @@ para manipular el objeto es necesario hacer #FormAlumno = 'ngForm' -->
     </button>
 </form>
 
-<div> {{ alumno | json }} </div>
+<!-- <div> {{ alumno | json }} </div> -->
