@@ -11,6 +11,6 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     console.log('Has pasado la guardia sin problemas')
     return true;
-    //return false;
+    //return false; Si pones false no deja acceder a los detalles de ningún libro
   }  
 }
