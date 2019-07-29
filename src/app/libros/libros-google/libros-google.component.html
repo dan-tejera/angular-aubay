@@ -1,6 +1,6 @@
 <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Libros-mock-srv</h4>
+            <h4 class="card-title">Libros Google API</h4>
         </div>
         <div class="card-body form-group">
             
@@ -11,12 +11,10 @@
                 <button type="button" class="btn btn-primary" (click) = "onBuscar()"> 
                     Buscar
                 </button>
-                <button type="button" class="btn btn-primary" (click) = "onBuscarPromise()"> 
-                    Buscar Promise
-                </button>
+
                 <button type="button" class="btn btn-primary" (click) = "onBuscarRxJS()"> 
                     Buscar RxJS
-                </button>
+                </button> 
             </div>    
 
         </div>        
@@ -33,7 +31,7 @@
             </div>
             
             <ng-template #mensajes>
-                {{ mensajesError }} 
+                {{ mensajesError }}
             </ng-template>
 
         </div>

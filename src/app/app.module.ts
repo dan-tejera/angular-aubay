@@ -3,13 +3,15 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { CoreModule } from './core/core.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
+
+import { AppComponent } from './app.component';
 
 registerLocaleData(localeEs);
 
@@ -20,6 +22,7 @@ registerLocaleData(localeEs);
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     NgbModule,
     AppRoutingModule,
     CoreModule,
